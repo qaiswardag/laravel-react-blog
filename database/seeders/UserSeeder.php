@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -15,7 +16,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::factory()->create(['email' => 'admin@admin.com']);
+        $admin = User::factory()->create(
+            ['email' => 'admin@admin.com']
+        );
         $admin->roles()->attach(1);
 
         $editor = User::factory()->create();
